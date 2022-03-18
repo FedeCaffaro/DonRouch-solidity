@@ -1,22 +1,23 @@
-const { expect } = require("chai")
-const { ethers } = require("hardhat")
+const { expect } = require("chai");
+const { ethers } = require("hardhat");
+const { BigNumber }=require('ethers');
 
-describe("SimpleStorage", function () {
-  let simpleStorage
-  let SimpleStorageFactory
-  beforeEach(async () => {
-    SimpleStorageFactory = await ethers.getContractFactory("SimpleStorage")
-    simpleStorage = await SimpleStorageFactory.deploy()
-  })
-  it("Should start with a favorite number of 0", async function () {
-    let currentValue = await simpleStorage.retrieve()
-    expect(currentValue).to.equal(0)
-  })
-  it("Should update when we call store", async function () {
-    let expectedValue = 7
-    let transactionResponse = await simpleStorage.store(expectedValue)
-    let transactionReceipt = await transactionResponse.wait()
-    let currentValue = await simpleStorage.retrieve()
-    expect(currentValue).to.equal(expectedValue)
-  })
+
+
+describe("Don Rouch", function(){
+
+
+    before(async () => {
+
+    [owner, buyer,admin] = await ethers.getSigners();
+    });
+
+    it("Should deploy contract", async function(){
+    const DonRouchFactory = await ethers.getContractFactory("DonRouch");
+    donrouch = await DonRouchFactory.deploy("https://samotclub.mypinata.cloud/ipfs/QmeLn1Vx2FLMQypLPqQfohYqEt4kJnUx5DUpc3pmwGU85w/{id}.json","DonRouch","DR");
+    await donrouch.deployed();
+    const contractAddress = donrouch.address;
+
+
+    });
 })

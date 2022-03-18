@@ -2,8 +2,11 @@ const networkConfig = {
   31337: {
     name: "localhost",
   },
-  42: {
-    name: "kovan",
+  1:{
+    name : "mainnet",
+  },
+  4: {
+    name: "rinkeby",
   },
 }
 

@@ -59,10 +59,16 @@ git checkout typescript
 
 # Useage
 
-Deploy:
+Deploy(using scripts):
 
 ```
 npx hardhat run scripts/deploy.js
+```
+
+Deploy(using deploy and autoverifies):
+
+```
+npx hardhat deploy
 ```
 
 ## Testing
